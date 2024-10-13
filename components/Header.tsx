@@ -6,11 +6,11 @@ import React from 'react'
 const Header = ({ children, className }: HeaderProps) => {
   return (
     <div className={cn("header", className)}>
-        <Link href='/' className='md:flex-1'>
+        <Link href='/' className='md:flex-1 mt-5'>
             <Image 
                 src="/assets/icons/logo.svg"
                 alt="Logo with name"
-                width={120}
+                width={185}
                 height={32}
                 className="hidden md:block"
             />
