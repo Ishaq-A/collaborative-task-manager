@@ -11,7 +11,7 @@ const Document = async ({ params: { id } }: SearchParamProps) => {
   
   const room = await getDocument({
     roomId: id,
-    userId: clerkUser.emailAddresses[0].emailAddress
+    userId: clerkUser.emailAddresses[0].emailAddress,
   });
   
   if (!room) redirect('/');
