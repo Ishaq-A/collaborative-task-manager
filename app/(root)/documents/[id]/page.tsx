@@ -19,9 +19,15 @@ const Document = async ({ params: { id } }: SearchParamProps) => {
   const userIds = Object.keys(room.usersAccesses);
   const users = await getClerkUsers({ userIds });
   
+  // users.map((user: User) => {
+  //   if (user === null) {
+  //     redirect(`/documents/${id}`);
+  //   }
+  // });
+  
   const usersData = users.map((user: User) => ({
     ...user,
-    userType: room.usersAccesses[user.email]?.includes('room:write')
+    userType: user !== null && room.usersAccesses[user.email]?.includes('room:write')
       ? 'editor'
       : 'viewer'
   }));
