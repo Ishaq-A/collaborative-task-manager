@@ -6,6 +6,7 @@ import { revalidatePath } from 'next/cache';
 import { getAccessType, parseStringify } from '../utils';
 import { redirect } from 'next/navigation';
 import { title } from 'process';
+import { clerkClient } from '@clerk/nextjs/server';
 
 export const createDocument = async ({ userId, email }: CreateDocumentParams) => {
     const roomId = nanoid();
@@ -79,10 +80,19 @@ export const getDocuments = async (email: string) => {
 
 export const updateDocumentAccess = async ({ roomId, email, userType, updatedBy }: ShareDocumentParams) => {
     try {
+        // Error Handling: Check is user exists in Clerk Database
+        const usersList = await clerkClient.users.getUserList({ emailAddress: [email] });
+    
+        if (usersList.totalCount === 0) {
+            throw new Error('ERROR OCCURRED: The user does not exist in the Clerk database. Cannot add user to room.');
+        }
+        
+        // Get User Accesses
         const usersAccesses: RoomAccesses = {
             [email]: getAccessType(userType) as AccessType,
         }
         
+        // Get Room & Update Users & Accesses
         const room = await liveblocks.updateRoom(roomId, { usersAccesses });
         
         if (room) {
