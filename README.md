@@ -51,7 +51,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/adrianhajdin/collaborative-editor.git
+git clone https://github.com/Ishaq-A/collaborative-task-manager.git
 cd collaborative-editor
 ```
 
@@ -83,6 +83,15 @@ SENTRY_AUTH_TOKEN=
 ```
 
 Replace the placeholder values with your actual Clerk & LiveBlocks credentials. You can obtain these credentials by signing up on the [Clerk](https://clerk.com/) and [Liveblocks](liveblocks.io/) website.
+
+NOTE: You will need to make accounts for the following: Clerk, Liveblocks, and Sentry. Then you can generate the API Keys for use as your environment variables.
+
+**Run As Docker Container**
+Attached you will find a Dockerfile for this project. You can run the application as a Docker container by first building a docker image using the Dockerfile, and then running the container.
+
+```bash
+docker build -t my-username/my-image .
+```
 
 **Running the Project**
 
