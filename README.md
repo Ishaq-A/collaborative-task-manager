@@ -86,17 +86,18 @@ Replace the placeholder values with your actual Clerk & LiveBlocks credentials. 
 
 NOTE: You will need to make accounts for the following: Clerk, Liveblocks, and Sentry. Then you can generate the API Keys for use as your environment variables.
 
-**Run As Docker Container**
-Attached you will find a Dockerfile for this project. You can run the application as a Docker container by first building a docker image using the Dockerfile, and then running the container.
-
-```bash
-docker build -t my-username/my-image .
-```
-
 **Running the Project**
 
 ```bash
 npm run dev
+```
+
+**Run As Docker Container**
+
+Attached you will find a Dockerfile for this project. You can run the application as a Docker container by first building a docker image using the Dockerfile, and then running the container.
+
+```bash
+docker build -t my-username/my-image .
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
