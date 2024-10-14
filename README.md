@@ -52,7 +52,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/Ishaq-A/collaborative-task-manager.git
-cd collaborative-editor
+cd collaborative-task-manager
 ```
 
 **Installation**
